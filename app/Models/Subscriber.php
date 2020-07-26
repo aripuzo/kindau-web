@@ -6,5 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Subscriber extends BaseModel
 {
-    //
+    protected $fillable = [
+        'phone',
+    ];
 }

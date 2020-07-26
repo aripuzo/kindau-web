@@ -26,5 +26,5 @@ Route::get('ussd', 'USSD\USSDController@respond');
 Route::post('ussd', 'USSD\USSDController@respond');
 
 Route::get('/test', function() {
-	return view('test');
+	return view('home');
 });

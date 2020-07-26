@@ -5,6 +5,8 @@ namespace App\Http\Controllers\USSD;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Subscriber;
+use App\Models\Page;
+use App\Models\PageRequest;
 
 class USSDController extends Controller
 {
@@ -15,9 +17,9 @@ class USSDController extends Controller
 		$phoneNumber = $request->get("phoneNumber");
 		$text        = $request->get("text");
 
-		// $subscriber = Subscriber::firstOrNew(['phone'=>$phoneNumber]); 
-		// $subscriber->phone= $phoneNumber;
-		// $subscriber->save();
+		$subscriber = Subscriber::firstOrNew(['phone'=>$phoneNumber]); 
+		$subscriber->phone= $phoneNumber;
+		$subscriber->save();
         
         //EXPLODE TEXT STRINGS 
         if(!empty($text)){
@@ -40,46 +42,36 @@ class USSDController extends Controller
                 } else {
                     $input[][$val] = [];
                 }
-            }	
+            }
+
+            $pageId = "";
+	        foreach ($input as $key => $value) {
+	        	if($pageId !== "")
+	        		$pageId .= "*";
+	        	$pageId .= array_key_first($value);
+	        }
+	        
+	        if (!isset($pageId) || $pageId == ""){
+				$page = Page::where('page_id', "0")->first();
+			}
+			else{
+				$page = Page::where('page_id', $pageId)->first();
+			}	
+
         }else{
-            $level = 0;
-        }
-        
-        $pageId = "";
-        foreach ($input as $key => $value) {
-        	if($pageId !== "")
-        		$pageId .= "*";
-        	$pageId .= array_key_first($value);
-        }
-        
-        if (!isset($pageId) || $pageId == ""){
-			$page = Page::where('page_id', "0")->first();
-		}
-		else{
-			$page = Page::where('page_id', $pageId)->first();
+            $page = Page::where('page_id', "0")->first();
 		}
 
 		header('Content-type: text/plain');
 		if(isset($page)){
-			PageRequest::create(['user_id' => $user->id, 'page_id' => $page->id, 'service_code' => $serviceCode]);
+			PageRequest::create(['subscriber_id' => $subscriber->id, 'page_id' => $page->id, 'service_code' => $serviceCode]);
 			$type = "CON ";
 			if($page->type == 1)
 				$type = "END ";
 			return response($type.$page->body, 201);
 		}
-
-		else {
-		    $page = Page::where('page_id', "0")->first();
-		    if(isset($page))
-		    	return response('CON '.$page->body, 201);
-		    else
-		    	return response("END Welcome to LSL", 201);
-		}
-    	return response("END Welcome to LSL", 201);
-
-        // Print the response onto the page for AfricasTalking gateway to read it.
-        header('Content-type: text/plain');
-        //echo "CON ".$response;
+		else
+			return response("END Couldn't find page", 201);
         exit;
 
     }

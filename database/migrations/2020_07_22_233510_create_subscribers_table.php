@@ -15,7 +15,7 @@ class CreateSubscribersTable extends Migration
     {
         Schema::create('subscribers', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('phone');
+            $table->string('phone', 15)->unique();
             $table->timestamps();
             $table->softDeletes();
         });
