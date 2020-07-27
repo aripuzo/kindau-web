@@ -113,6 +113,6 @@ class USSDController extends Controller
     }
 
     private function getCreditRequestText($token){
-    	return "DO NOT DISCLOSE\nFuel ticket token is $token\nPresent this token to the fuel attendant at partner stations.\n\nWhen the ticket is accepted, your verification code will be sent to complete transaction"; 
+    	return "DO NOT DISCLOSE\nFuel ticket token is $token\nPresent this token to the fuel attendant at partner stations.\n\nWhen the ticket is accepted, your verification code will be sent to complete transaction.\nPartner outlets include Oando, Total, MRS, Mobil"; 
     }
 }
