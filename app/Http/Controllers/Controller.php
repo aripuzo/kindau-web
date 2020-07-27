@@ -29,9 +29,9 @@ class Controller extends BaseController
 
     function getToken($length = 10){
 	    $token = "";
-	    $codeAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	    $codeAlphabet.= "abcdefghijklmnopqrstuvwxyz";
-	    $codeAlphabet.= "0123456789";
+	    //$codeAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	    //$codeAlphabet.= "abcdefghijklmnopqrstuvwxyz";
+	    $codeAlphabet = "0123456789";
 	    $max = strlen($codeAlphabet);
 
 	    for ($i=0; $i < $length; $i++) {

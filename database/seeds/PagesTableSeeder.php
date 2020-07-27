@@ -47,6 +47,11 @@ class PagesTableSeeder extends Seeder
 	       		'body' => "NGN2500 for 11.39 litres, inc. service fees. Your tokens will be sent by SMS\n
 	       		Present tokens at any nearest partner outlet\n 1. Accept\n0. Back",
 	     	),
+	     	array(
+	     		'id' => (string) Str::uuid(),
+	       		'page_id' => '6',
+	       		'body' => "Enter your station code",
+	     	),
 	   ));
     }
 }
