@@ -27,25 +27,25 @@ class PagesTableSeeder extends Seeder
 	     		'id' => (string) Str::uuid(),
 	       		'page_id' => '1*1',
 	       		'body' => "You have selected NGN 500 for 11.39 litres, including service fees. Your tokens will be sent shortly through SMS\n
-	       		You'll have to present tokens to get your fuel at any nearest outlet of\n\n Oando, Total, MRS, Mobil\n\n 1. Accept\n0. Back",
+	       		Present tokens at any nearest outlet of\nOando, Total, MRS, Mobil\n 1. Accept\n0. Back",
 	     	),
 	     	array(
 	     		'id' => (string) Str::uuid(),
 	       		'page_id' => '1*2',
 	       		'body' => "You have selected NGN 1000 for 11.39 litres, including service fees. Your tokens will be sent shortly through SMS\n
-	       		You'll have to present tokens to get your fuel at any nearest outlet of\n\n Oando, Total, MRS, Mobil\n\n 1. Accept\n0. Back",
+	       		Present tokens at any nearest outlet of\n Oando, Total, MRS, Mobil\n 1. Accept\n0. Back",
 	     	),
 	     	array(
 	     		'id' => (string) Str::uuid(),
 	       		'page_id' => '1*3',
 	       		'body' => "You have selected NGN 1500 for 11.39 litres, including service fees. Your tokens will be sent shortly through SMS\n
-	       		You'll have to present tokens to get your fuel at any nearest outlet of\n\n Oando, Total, MRS, Mobil\n\n 1. Accept\n0. Back",
+	       		Present tokens at any nearest outlet of\n Oando, Total, MRS, Mobil\n 1. Accept\n0. Back",
 	     	),
 	     	array(
 	     		'id' => (string) Str::uuid(),
 	       		'page_id' => '1*4',
 	       		'body' => "You have selected NGN 2500 for 11.39 litres, including service fees. Your tokens will be sent shortly through SMS\n
-	       		You'll have to present tokens to get your fuel at any nearest outlet of\n\n Oando, Total, MRS, Mobil\n\n 1. Accept\n0. Back",
+	       		Present tokens at any nearest outlet of\n Oando, Total, MRS, Mobil\n 1. Accept\n0. Back",
 	     	),
 	   ));
     }
