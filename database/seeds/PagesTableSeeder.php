@@ -21,7 +21,7 @@ class PagesTableSeeder extends Seeder
 	     	array(
 	     		'id' => (string) Str::uuid(),
 	       		'page_id' => '1',
-	       		'body' => "1. Get NGN 500\n2. Get NGN 1000\n1. Get NGN 1500\n1. Get NGN 2500\n\n 0. Back",
+	       		'body' => "1. Get NGN 500\n2. Get NGN 1000\n3. Get NGN 1500\n4. Get NGN 2500\n\n 0. Back",
 	     	),
 	     	array(
 	     		'id' => (string) Str::uuid(),
